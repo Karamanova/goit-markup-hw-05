@@ -590,70 +590,40 @@ padding: 60px 0;
     margin-right: 8px;
 }
 /*Секция с перечнем проектов*/
+
+/*Коробочка для проектов*/
 .project {
     display: flex;
     flex-wrap: wrap;
 }
-/*Коробочка для проектов*/
+
 .project-list {
     background: var(--primary-color);
     box-sizing: border-box;
     transition: box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
-.project-list:hover {
-    box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.12), 0px 4px 4px rgba(0, 0, 0, 0.06),
-        1px 4px 6px rgba(0, 0, 0, 0.16);
-}
-.project-list:hover .portfolio-item-wrap {
-    color: var(--primary-color);
-    transform: translateY(0);
-    opacity: 1;
-}
 .project-list:not(:nth-child(3n)) {
     margin-right: 30px;
 }
+
 .project-list:not(:nth-last-child(-n + 3)) {
     margin-bottom: 30px;
 }
 .project-item {
     display: block;
+    text-decoration: none;
 }
-.project-item:hover {
+.project-item:hover,
+.project-item:focus {
     box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.12), 0px 4px 4px rgba(0, 0, 0, 0.06),
-            1px 4px 6px rgba(0, 0, 0, 0.16);
+        1px 4px 6px rgba(0, 0, 0, 0.16);
 }
-.portfolio-wrap {
-    position: relative;
-    overflow: hidden;
-}
-.portfolio-item-wrap {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    top: 0;
-    left: 0;
-    background-color: var(--accent-color);
-    transform: translateY(100%);
-    opacity: 0;
-    transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1),
-        color 250ms cubic-bezier(0.4, 0, 0.2, 1),
-        background-color 250ms cubic-bezier(0.4, 0, 0.2, 1),
-        opacity 250ms cubic-bezier(0.4, 0, 0.2, 1);
-}
-.portfolio-top-text {
-    font-size: 18px;
-    line-height: 1.56;
-    letter-spacing: 0.03em;
-    color: var(--primary-color);
-    padding: 63px 24px;
-    overflow: auto;
-}
-.project-description {
+.project-list-content {
     padding: 20px 24px;
     border-top: none;
     border: 1px solid var(--border-solid-color);
 }
-/*Название проекта*/
+
 .project-name {
     font-weight: 700;
     font-size: 18px;
@@ -661,10 +631,37 @@ padding: 60px 0;
     letter-spacing: 0.06em;
     color: var(--title-color);
 }
-/*Тип проекта*/
+
 .project-type {
     line-height: 1.88;
     letter-spacing: 0.03em;
     color: var(--contacts-list-color);
     margin-top: 4px;
+}
+
+.project-list-img-wrapper {
+    position: relative;
+    overflow: hidden;
+}
+
+.portfolio-top-text {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    font-size: 18px;
+    line-height: 1.56;
+    letter-spacing: 0.03em;
+    color: var(--primary-color);
+    padding: 63px 24px;
+    background-color: rgba(33, 150, 243, 0.9);
+    overflow: auto;
+    transform: translateY(100%);
+    transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.project-item:hover .portfolio-top-text,
+.project-item:focus .portfolio-top-text {
+    transform: translateY(0%);
 }
